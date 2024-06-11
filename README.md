@@ -1,93 +1,152 @@
-# NUxExtosoft-Doctor-Appointment
+# Doctor Appointment - Full Stack Appointment Website
+
+## 👨‍💻 Actively Seeking Better Opportunities
+#### 🌟 Open to vacancies, jobs, or contract roles 🚀
+
+### Installation video
+[![YouTube](https://img.shields.io/badge/Watch_on-YouTube-red?logo=youtube)](https://youtu.be/L6cgb7I-Ap4)&nbsp;&nbsp;&nbsp;&nbsp;
+
+[![Preview](https://img.shields.io/badge/Preview_on-Netlify-brightgreen?logo=netlify)](https://dental-doctor-ujjal.netlify.app/)&nbsp;&nbsp;&nbsp;&nbsp;[![Live Preview](https://img.shields.io/badge/Live_Preview-Netlify-blue?logo=netlify)](https://dental-doctor-ujjal.netlify.app/)
 
 
+##### To Setup Project Follow `project_setup.txt` documentation
 
-## Getting started
+## About The Project
+The `DoctorOnCall` System facilitates patients in scheduling appointments with preferred doctors or Emergency Appointments set up via an online platform.
+Developed using the React, Nodejs, and Prisma stack, it offers a professional website with dynamic functionalities. Key features include dynamic home, Email Notification, Filtering doctors, Setting up appointments and patients/doctors dashboards, secure user login with validation mechanisms, appointment scheduling with access to doctor details, patient appointment management, doctor selection, and overall industries level code splitting followed.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## What Features Will You Find Here:
+ - **Dynamic Homepage:** Conveniently gathers essential information on a single page.
+ - **Easy Appointment Setup:** Seamlessly schedule appointments with doctors, featuring selectable available dates and time ranges.
+ - **Dynamic Appointment Management:** Flexible time and date range selection for appointments.
+ - **Doctor Selection:** Patients can choose their preferred doctor for appointments.
+ - **Industry-standard Code Quality:** Utilization of top-notch code conventions, code splitting, and TypeScript in backend development.
+ - **Email Notifications:** Automated email notifications for appointment setup and invoicing.
+ - **Doctor Dashboard:** Dynamic dashboard for doctors to access patient information and provide online treatment with customizable prescriptions.
+ - **Patient Dashboard:** Patients can track their treatment progress, view medications, prescriptions, and appointment details from a dynamic dashboard.
+ - **Appointment Tracking:** Track appointment status using a unique tracking ID directly from the homepage.
+ - **Dynamic Prescription and Invoice Generation:** Customized prescriptions and invoices tailored to each appointment.
+ - **User Authentication:** Dynamic authentication system allowing user sign-in, sign-up, password recovery, and email verification (for doctors).
+ - **Dynamic Doctor Filtering:** Advanced filtering options for doctors and appointment scheduling, along with blogging and service features.
+ - **Ongoing Development:** Continued enhancements with an evolving admin system.
+ - **Best Practices:** Adherence to industry best practices, ensuring reusable and maintainable code.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+<!-- GETTING STARTED -->
+## Getting Started
+To begin using the DoctorOnCall System, follow these simple steps:
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.com/phurinat25/nuxextosoft-doctor-appointment.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.com/phurinat25/nuxextosoft-doctor-appointment/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+### Prerequisites
+Before getting started with the DoctorOnCall System, ensure that you have the following prerequisites installed and set up:
+* Install Node.js (globally)
+  ```sh
+  npm install npm@latest -g
+  ```
+* Prisma CLI: If you're planning to work on the backend part, you'll need to have Prisma CLI installed globally. You can install it using npm:
+  ```sh
+   npm install -g prisma
+  ```
+* TypeScript (optional): TypeScript is used in the backend, ensure that you have TypeScript installed globally. You can install it using npm:
+  ```sh
+   npm install -g typescript
+  ```
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+To begin using the DoctorOnCall System, follow these simple steps:
+### The front-end and Backend code are in the same directory, with the Backend API located at the ./api directory
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+```
+# Setup Documentation
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+## Clone The Project
+git clone https://github.com/Ujjalzaman/Doctor-Appointment.git
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### Install Frontend
+cd Doctor-Appointment
+- npm install
+- npm start
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+### Install Backend
+cd api
+- npm install
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### Setup Database
+1. Rename .env.example to .env (remove .example).
+2. Create a PostgreSQL Database (Railway if you don't have one installed locally):
+   - Create an account at https://railway.app/.
+   - Navigate to the New Section > Database > Add PostgreSQL.
+   - Select your created database and go to the Variables tab.
+   - Copy DATABASE_PUBLIC_URL.
+   - Paste the database URL into the .env file.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+### Install Prisma
+- npm install -g prisma
+- npx prisma generate
+- npx prisma migrate dev
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+### Setup Google App Password (For Email Notification)
+1. Go to Google Account settings at https://myaccount.google.com/security?hl=en.
+2. Navigate to Security > 2-Step Verification.
+3. Scroll to the bottom of the page and find App passwords.
+4. Select your project name and copy the generated password.
+5. Paste the app password into .env as EMAIL_PASS.
 
-## License
-For open source projects, say how it is licensed.
+### Setup Cloudinary to Upload Image
+1. Create a Cloudinary Account at https://cloudinary.com/.
+2. Login to your Cloudinary Account and copy all the credentials (e.g., Cloud name, API key, API secret).
+3. Paste those credentials into the .env file.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+### Start Backend
+npm run dev
+
+Happy coding! 🚀
+```
+
+Note: Please note that these are general instructions for setting up an Express API, and the specific implementation details may vary depending on your project's requirements. Before starting, make sure to read the project's documentation or readme file to obtain any specific instructions or requirements.
+
+ 
+ This system offers a comprehensive and dynamic platform for managing doctor appointments, treatments, and patient interactions while maintaining high standards of code quality and user experience.
+
+#### What Technology Are Using In This Project
+
+**Frontend Technology Stack:** 
+- **React**: A JavaScript library for building user interfaces, offering a component-based architecture for creating interactive UIs.
+- **Redux Toolkit:** A state management library for React applications, providing predictable state management with a single source of truth.
+- **Ant Design:** A UI library for React applications, offering a set of customizable and pre-designed components.
+- **React Hook Form:** A library for managing form state and validation in React applications, providing a simple and intuitive API.
+- **Axios**: A promise-based HTTP client for making HTTP requests, used for interacting with backend APIs.
+
+**Back-End:** 
+- **Express.js:** A web application framework for Node.js, used for building robust APIs and web applications
+- **TypeScript:** A superset of JavaScript that adds static typing, enhancing code quality and maintainability.
+- **Prisma**: A modern database toolkit for Node.js and TypeScript, used for database access and management.
+
+ ## Project Screenshot
+![DoctorOnCall OverView](https://github.com/Ujjalzaman/Doctor-Appointment/assets/49386888/eeed56ce-3d9a-464d-91e5-588ea81ec5c0)
+
+## Contributing:
+
+1. Fork the repository by clicking the "Fork" button on the top right corner of the project's GitHub page. This will create a copy of the project in your own GitHub account.
+
+2. Clone the forked repository to your local machine by running the command ``` git clone https://github.com/your-username/online-doctor-appointment.git ``` in your terminal.
+
+3. Install the project's dependencies by running npm install or yarn install in the project's root directory.
+Create a new branch for your changes by running the command ``` git checkout -b branch-name ```, where branch-name is a descriptive name for your branch.
+Make your desired changes to the code.
+
+4. Test your changes locally by running npm start or yarn start and accessing the project in your web browser at ``` http://localhost:3000 ``` or another specified URL.
+5. Add and commit your changes to your local repository by running the command git add . followed by ``` git commit -m "Your commit message here" ```
+
+6. Push your changes to your forked repository by running the command ``` git push origin branch-name ```
+
+7. Create a pull request (PR) by navigating to your forked repository on GitHub and clicking the "New pull request" button. Make sure that the base branch is set to the original project's branch that you want to contribute to, and the head branch is set to your forked repository's branch that contains your changes.
+
+8. Write a descriptive title and message for your pull request, explaining the changes you made and why they should be merged.
+Wait for the project's maintainers to review your pull request and provide feedback. You may be asked to make further changes or address any issues before your changes are merged.
+
+9. Once your pull request is approved and merged, your changes will become part of the project. Congratulations, you have successfully contributed to the project!
+
+Thank you for considering this project. If you have any questions, please do not hesitate to contact me.
+
+
+## Contact Me
+Portfolio: [https://ujjalzaman.netlify.app/](https://ujjalzaman.netlify.app/)
