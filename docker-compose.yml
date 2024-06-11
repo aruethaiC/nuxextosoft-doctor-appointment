@@ -8,7 +8,10 @@ services:
       - '5050:5050'
     environment:
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces
-
+    depends_on:
+      postgres:
+        condition: service_healthy
+    
   frontend:
     build:
       context: .
@@ -38,13 +41,13 @@ services:
       - ./tempo.yaml:/etc/tempo.yaml
 
   otel-collector:
-    image: otel/opentelemetry-collector:latest
+    image: otel/opentelemetry-collector-contrib:latest
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
     command: ["--config=/etc/otel-collector-config.yaml"]
     ports:
       - "4317:4317"
       - "4318:4318"
-    volumes:
-      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
 
   grafana:
     image: grafana/grafana:10.0.2
@@ -58,6 +61,35 @@ services:
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_AUTH_DISABLE_LOGIN_FORM=true
 
+  postgres:
+    image: postgres:latest
+    container_name: postgres-hackathon
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_hackathon:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin-hackathon
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5051:80"
+    depends_on:
+      - postgres
+
 volumes:
   prometheus-data:
   grafana-storage:
+  postgres_data_hackathon:

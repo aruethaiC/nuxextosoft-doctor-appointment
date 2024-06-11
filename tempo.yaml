@@ -3,6 +3,12 @@ server:
 
 distributor:
   receivers:
+    jaeger:
+      protocols:
+        grpc:
+        thrift_http:
+        thrift_binary:
+        thrift_compact:
     otlp:
       protocols:
         http:
