@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaCheck, FaEnvelope, FaLock, FaTimes, FaUser } from 'react-icons/fa';
 import SocialSignUp from './SocialSignUp';
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from 'react-bootstrap/Spinner';
 import swal from 'sweetalert';
 import { useDoctorSignUpMutation, usePatientSignUpMutation } from '../../redux/api/authApi';
 import { message } from 'antd';
@@ -23,8 +23,9 @@ const SignUp = ({ setSignUp }) => {
         lastName: '',
         email: '',
         password: '',
-    }
-    const [user, setUser] = useState(formField)
+    };
+    
+    const [user, setUser] = useState(formField);
     const [userType, setUserType] = useState('patient');
     const [doctorSignUp, { data: dData, isSuccess: dIsSuccess, isError: dIsError, error: dError, isLoading: dIsLoading }] = useDoctorSignUpMutation();
     const [patientSignUp, { data: pData, isSuccess: pIsSuccess, isError: pIsError, error: pError, isLoading: pIsLoading }] = usePatientSignUpMutation();
@@ -33,59 +34,58 @@ const SignUp = ({ setSignUp }) => {
         specailChar: false,
         upperLowerCase: false,
         numeric: false
-    })
+    });
 
     const handleSignUpSuccess = () => {
         setLoading(false);
-        setUser(formField)
-    }
+        setUser(formField);
+    };
+
     useEffect(() => {
         // doctor account
         if (dIsError && dError) {
-            message.error("Email Already Exist !!")
+            message.error("Email Already Exist !!");
             setLoading(false);
         }
 
         if (!dIsError && dIsSuccess) {
             handleSignUpSuccess();
-            setLoading(false);
-            setLoading(false);
             swal({
                 icon: 'success',
                 text: `Successfully Account Created Please Verify Your email`,
                 timer: 5000
-            })
+            });
         }
 
         // Patient account
         if (pIsError && pError) {
-            message.error("Email Already Exist !!")
+            message.error("Email Already Exist !!");
             setLoading(false);
         }
         if (!pIsError && pIsSuccess) {
             handleSignUpSuccess();
-            setLoading(false);
             setSignUp(false);
             swal({
                 icon: 'success',
                 text: `Successfully ${userType === 'doctor' ? 'Doctor' : 'Patient'} Account Created Please Login`,
                 timer: 2000
-            })
+            });
         }
 
-    }, [dIsError, dError, pError, pIsError, , pIsLoading, dIsLoading, pData, dData, setSignUp, setLoading, dIsSuccess])
+    }, [dIsError, dError, pError, pIsError, pIsLoading, dIsLoading, pData, dData, setSignUp, setLoading, dIsSuccess]);
 
     const [emailError, setEmailError] = useState({
         emailError: false
-    })
+    });
 
     const handleEmailError = (name, value) => {
         if (name === 'email') {
             setEmailError({
                 emailError: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-            })
+            });
         }
-    }
+    };
+
     const hanldeValidation = (name, value) => {
         if (name === 'password') {
             setPasswordValidation({
@@ -93,14 +93,14 @@ const SignUp = ({ setSignUp }) => {
                 specailChar: /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/.test(value),
                 upperLowerCase: /^(?=.*[a-z])(?=.*[A-Z])/.test(value),
                 numeric: /^(?=.*\d)/.test(value),
-            })
+            });
         }
-    }
+    };
 
     const hanldeOnChange = (e) => {
         let { name, value } = e.target;
-        hanldeValidation(name, value)
-        handleEmailError(name, value)
+        hanldeValidation(name, value);
+        handleEmailError(name, value);
         let isPassValid = true;
 
         if (value === 'email') {
@@ -110,27 +110,29 @@ const SignUp = ({ setSignUp }) => {
             isPassValid = ((value.length > 8)
                 && /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/.test(value)
                 && /^(?=.*[a-z])(?=.*[A-Z])/.test(value)
-                && /^(?=.*\d)/.test(value))
+                && /^(?=.*\d)/.test(value));
         }
         if (isPassValid) {
             const newPass = { ...user };
-            newPass[name] = value
-            setUser(newPass)
+            newPass[name] = value;
+            setUser(newPass);
         }
-    }
+    };
 
     const handleUserTypeChange = (e) => {
         setUserType(e.target.value);
-    }
+    };
+
     const hanldeOnSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         if (userType === "doctor") {
-            doctorSignUp(user);
+            doctorSignUp({ ...user, verified: true });
+            
         } else {
-            patientSignUp(user)
+            patientSignUp(user);
         }
-    }
+    };
 
     return (
         <form className="sign-up-form" onSubmit={hanldeOnSubmit}>
@@ -183,29 +185,28 @@ const SignUp = ({ setSignUp }) => {
 
                 <div style={passwordValidation.carLength ? { color: "green" } : { color: "red" }}>
                     <p>{passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-                        <span className="ms-2">Password Must Have atlast 8 character.</span></p>
+                        <span className="ms-2">Password Must Have at least 8 characters.</span></p>
                 </div>
 
                 <div style={passwordValidation.specailChar ? { color: "green" } : { color: "red" }}>
                     <p>{passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-                        <span className="ms-2">Password Must Have a special cracter.</span></p>
+                        <span className="ms-2">Password Must Have a special character.</span></p>
                 </div>
 
                 <div style={passwordValidation.upperLowerCase ? { color: "green" } : { color: "red" }}>
                     <p>{passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-                        <span className="ms-2">Password Must Have uppercase and lower case.</span></p>
+                        <span className="ms-2">Password Must Have uppercase and lowercase letters.</span></p>
                 </div>
 
                 <div style={passwordValidation.numeric ? { color: "green" } : { color: "red" }}>
                     <p>{passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-                        <span className="ms-2">Password Must Have Number.</span></p>
+                        <span className="ms-2">Password Must Have a number.</span></p>
                 </div>
             </div>
 
             <p className="social-text">Or Sign up with social account</p>
             <SocialSignUp />
         </form>
-
     );
 };
 

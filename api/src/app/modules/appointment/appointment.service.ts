@@ -1,4 +1,4 @@
-import { Appointments, Patient, Payment, paymentStatus } from "@prisma/client";
+import { Appointments, Patient, Payment, paymentStatus, Doctor } from "@prisma/client";
 import prisma from "../../../shared/prisma";
 import ApiError from "../../../errors/apiError";
 import httpStatus from "http-status";
@@ -8,7 +8,6 @@ import * as path from 'path';
 import config from "../../../config";
 
 const createAppointment = async (payload: any): Promise<Appointments | null | any> => {
-
     const { patientInfo, payment } = payload;
     if(patientInfo.patientId){
         const isUserExist = await prisma.patient.findUnique({
@@ -31,7 +30,7 @@ const createAppointment = async (payload: any): Promise<Appointments | null | an
         throw new ApiError(httpStatus.NOT_FOUND, 'Doctor Account is not found !!')
     }
     patientInfo['paymentStatus'] = paymentStatus.paid;
-  
+
     const result = await prisma.$transaction(async (tx) => {
         const previousAppointment = await tx.appointments.findFirst({
             orderBy: { createdAt: 'desc' },
@@ -119,12 +118,22 @@ const createAppointmentByUnAuthenticateUser = async (payload: any): Promise<Appo
     }
 
     const result = await prisma.$transaction(async (tx) => {
-        //console.log("dddddddddddddd 122")
+        // คิวรี doctorId จากฐานข้อมูล
+        const defaultDoctor = await tx.doctor.findFirst({
+
+            select: {
+                id: true
+            }
+        });
+
+        if (!defaultDoctor) {
+            throw new ApiError(httpStatus.NOT_FOUND, 'Default Doctor is not found !!')
+        }
+
         const previousAppointment = await tx.appointments.findFirst({
             orderBy: { createdAt: 'desc' },
             take: 1
         });
-        //console.log("dddddddddddddd 127")
         const appointmentLastNumber = (previousAppointment?.trackingId ?? '').slice(-3);
         const lastDigit = (Number(appointmentLastNumber) + 1).toString().padStart(3, '0')
         // Trcking Id To be ==> UNU - 'Un Authenticate User  + current year + current month + current day + unique number (Matched Previous Appointment).
@@ -133,8 +142,9 @@ const createAppointmentByUnAuthenticateUser = async (payload: any): Promise<Appo
         const day = (moment().dayOfYear()).toString().padStart(2, '0');
         const trackingId = 'UNU' + year + month + day + lastDigit || '0001';
         patientInfo['trackingId'] = trackingId;
-        // patientInfo['doctorId'] = config.defaultAdminDoctor
-        patientInfo['doctorId'] = "1b20d770-f325-4b00-86a5-8548185fa04d"
+        // แทนที่ค่า doctorId ที่ฮาร์ดโค้ดด้วยค่า doctorId ที่ดึงจากฐานข้อมูล
+        patientInfo['doctorId'] = defaultDoctor.id;
+
         const appointment = await tx.appointments.create({
             data: patientInfo,
         });

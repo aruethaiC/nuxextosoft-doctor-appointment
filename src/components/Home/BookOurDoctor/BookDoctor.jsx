@@ -36,6 +36,7 @@ const BookDoctor = () => {
 	// what to render 
 	let content = null;
 	if (!isLoading && isError) content = <div>Something Went Wrong !</div>
+
 	if (!isLoading && !isError && doctors?.length === 0) content = <div>Empty</div>
 	if (!isLoading && !isError && doctors?.length > 0) content =
 		<>
@@ -123,7 +124,7 @@ const BookDoctor = () => {
 								breakpoints={{
 									640: { slidesPerView: 2},
 									768: { slidesPerView: 2},
-									1024: { slidesPerView: 2},
+									1024: { slidesPerView:2},
 								}}
 							>
 								{content}
