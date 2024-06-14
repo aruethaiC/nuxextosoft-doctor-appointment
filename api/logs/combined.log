@@ -154,3 +154,9 @@
 2024-06-12 16:31:52 [b7e83874-9b96-4731-b0fa-ea088a7c3344] [[32minfo[39m]: Request to GET /api/v1/doctor?limit=4 took 19.06ms
 2024-06-12 16:31:52 [8c0be80c-36ed-4685-8b93-548200137d1c] [[32minfo[39m]: Request to GET /api/v1/doctor/bee574ca-141d-40e7-a272-3f86a84c3ee6 took 17.95ms
 2024-06-12 16:31:52 [80a40049-ac73-4511-b81f-1f292845daab] [[32minfo[39m]: Request to GET /api/v1/patient/bee574ca-141d-40e7-a272-3f86a84c3ee6 took 10.34ms
+2024-06-13 16:48:30 [390fa28b-8168-45da-9a60-96fd5dff8d44] [[32minfo[39m]: Request to GET /api/v1/review took 81.53ms
+2024-06-13 16:48:30 [c209f058-b21d-41c9-820b-4697b8b87274] [[32minfo[39m]: Request to GET /api/v1/patient/a9cd6789-fab6-4e42-be35-64e7ab3bfcff took 79.98ms
+2024-06-13 16:48:30 [5ab792ba-a3ac-4f29-933e-c62268ba5af2] [[32minfo[39m]: Request to GET /api/v1/doctor/a9cd6789-fab6-4e42-be35-64e7ab3bfcff took 87.77ms
+2024-06-13 16:48:30 [8dea6115-bd97-4299-b5d3-b945255ce508] [[32minfo[39m]: Request to GET /api/v1/blogs/?limit=3 took 113.25ms
+2024-06-13 16:48:30 [bf7a5344-26ff-4969-9b43-fd94093fbe82] [[32minfo[39m]: Request to GET /api/v1/doctor?limit=10 took 124.98ms
+2024-06-13 16:48:30 [7144c817-546a-4157-80f7-e14dea41c356] [[32minfo[39m]: Request to GET /api/v1/doctor?limit=4 took 117.53ms
